@@ -4,7 +4,7 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -15,16 +15,17 @@ import frc.robot.Constants;
 public class DrivetrainSubsystem extends SubsystemBase {
   /** Creates a new Drivetrain. */
 
-  public WPI_TalonFX leftMotor1, leftMotor2, rightMotor1, rightMotor2;
+  public WPI_TalonSRX leftMotor1, leftMotor2, rightMotor1, rightMotor2;
+
   public MotorControllerGroup leftMotorGroup, rightMotorGroup;
   public DifferentialDrive ddrive;
 
   public DrivetrainSubsystem() {
 
-    leftMotor1 = new WPI_TalonFX(Constants.DrivetrainConstants.MOTOR_L1_ID);   // Assigning a port ID to leftMotor1
-    leftMotor2 = new WPI_TalonFX(Constants.DrivetrainConstants.MOTOR_L2_ID);
-    rightMotor1 = new WPI_TalonFX(Constants.DrivetrainConstants.MOTOR_R1_ID);
-    rightMotor2 = new WPI_TalonFX(Constants.DrivetrainConstants.MOTOR_R2_ID);
+    leftMotor1 = new WPI_TalonSRX(Constants.DrivetrainConstants.MOTOR_L1_ID);   // Assigning a port ID to leftMotor1
+    leftMotor2 = new WPI_TalonSRX(Constants.DrivetrainConstants.MOTOR_L2_ID);
+    rightMotor1 = new WPI_TalonSRX(Constants.DrivetrainConstants.MOTOR_R1_ID);
+    rightMotor2 = new WPI_TalonSRX(Constants.DrivetrainConstants.MOTOR_R2_ID);
 
     leftMotorGroup = new MotorControllerGroup(leftMotor1, leftMotor2);
     leftMotorGroup.setInverted(true);

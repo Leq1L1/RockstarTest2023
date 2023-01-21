@@ -6,11 +6,11 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 
-import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class DrivetrainSubsystem extends SubsystemBase {
   /** Creates a new Drivetrain. */
@@ -19,6 +19,7 @@ public class DrivetrainSubsystem extends SubsystemBase {
 
   public MotorControllerGroup leftMotorGroup, rightMotorGroup;
   public DifferentialDrive ddrive;
+
 
   public DrivetrainSubsystem() {
 
@@ -33,6 +34,7 @@ public class DrivetrainSubsystem extends SubsystemBase {
 
     ddrive = new DifferentialDrive(leftMotorGroup, rightMotorGroup);
 
+    
 
   }
 
@@ -41,12 +43,15 @@ public class DrivetrainSubsystem extends SubsystemBase {
     // This method will be called once per scheduler run
   }
 
-  public void driveWithJoysticks(XboxController controller, double throttle, double turn, double maxOutput){
-    if(throttle>=0.6 || throttle<-0.6 || turn>=0.6 || turn<-0.6){
+  public void driveWithJoysticks(double throttle, double turn, double maxOutput){
+    if(throttle>=0.9 || throttle<=-0.9 || turn>=0.9 || turn<=-0.9){
       maxOutput = 0.8;
+  
     } else {
-      maxOutput = 0.4;
+      maxOutput = 0.6                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ;
+
     }
+    SmartDashboard.putNumber("MaxOutput", maxOutput);
     double forwardSpeed = throttle * maxOutput;
     double turnSpeed = turn * maxOutput;
     ddrive.arcadeDrive(forwardSpeed, turnSpeed);

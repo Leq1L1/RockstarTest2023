@@ -14,14 +14,14 @@ package frc.robot;
  */
 public final class Constants {
     public final static class DrivetrainConstants{
-        public final static int MOTOR_L1_ID = 0;
-        public final static int MOTOR_L2_ID = 1;
-        public final static int MOTOR_R1_ID = 2;
-        public final static int MOTOR_R2_ID = 3;
+        public final static int MOTOR_L1_ID = 1;
+        public final static int MOTOR_L2_ID = 0;
+        public final static int MOTOR_R1_ID = 12;
+        public final static int MOTOR_R2_ID = 15;
         //public final static Double MAX_MOTOR_POWER = 0.8;
     }
     public final static class Binds{
         public final static int L_Y_AXIS = 1;
         public final static int R_X_AXIS = 4;
     }
-    }
+}

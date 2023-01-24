@@ -4,6 +4,7 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -24,9 +25,13 @@ public class DrivetrainSubsystem extends SubsystemBase {
   public DrivetrainSubsystem() {
 
     leftMotor1 = new WPI_TalonFX(Constants.DrivetrainConstants.MOTOR_L1_ID);   // Assigning a port ID to leftMotor1
+    leftMotor1.setNeutralMode(NeutralMode.Brake);
     leftMotor2 = new WPI_TalonFX(Constants.DrivetrainConstants.MOTOR_L2_ID);
+    leftMotor2.setNeutralMode(NeutralMode.Brake);
     rightMotor1 = new WPI_TalonFX(Constants.DrivetrainConstants.MOTOR_R1_ID);
+    rightMotor1.setNeutralMode(NeutralMode.Brake);
     rightMotor2 = new WPI_TalonFX(Constants.DrivetrainConstants.MOTOR_R2_ID);
+    rightMotor2.setNeutralMode(NeutralMode.Brake);
 
     leftMotorGroup = new MotorControllerGroup(leftMotor1, leftMotor2);
     leftMotorGroup.setInverted(true);
